@@ -1,0 +1,137 @@
+PROGRAM:PHYSICS
+"Number of labels:13
+ClrHome
+Disp "PHYSICS IS FUN","RIGHT?"
+Disp 
+Disp "All angles are","in degrees"
+Pause ""
+ClrHome
+
+Degree
+
+Lbl A
+Menu("Main Menu","Vectors",AB,"Range Solver",D,"Exit",Z)
+
+Lbl AB
+Menu("Vector Menu","DotProduct",B,"CrossProduct",C,"Magnitude",E,"Back",BC,"Exit",Z)
+
+Lbl B
+Menu("DotProduct Menu","Mag + Angle",BA,"Components",BB,"Back",BC,"Exit",Z)
+
+Lbl BA
+ClrHome
+Disp "DOTPRODUCT OF","TWO 3D VECTORS"
+Input "|Vector1|: ",A
+Input "|Vector2|: ",B
+Input "Angle: ",T
+A*B*cos(T)→C
+Disp C
+Pause ""
+ClrHome
+Goto B
+
+Lbl BB
+ClrHome
+Disp "DOTPRODUCT OF","TWO 3D VECTORS"
+Input "X-Comp of Vec1: ",X
+Input "Y-Comp of Vec1: ",Y
+Input "Z-Comp of Vec1: ",Z
+ClrHome
+Input "X-Comp of Vec2: ",U
+Input "Y-Comp of Vec2: ",V
+Input "Z-Comp of Vec2: ",W
+ClrHome
+If X=U:Then
+If Y=V:Then
+If Z=W:Then
+Disp "Vctrs equivalent"
+Disp "DOTPRODUCT IS 1"
+End
+End
+Else
+X*U→A
+Y*V→B
+Z*W→C
+A+B+C→D
+Disp D
+End
+Pause ""
+ClrHome
+Goto B
+
+Lbl BC
+Goto AB
+
+Lbl C
+ClrHome
+Disp "CROSSPRODUCT OF","TWO 3D VECTORS"
+Input "X-Comp of Vec1: ",X
+Input "Y-Comp of Vec1: ",Y
+Input "Z-Comp of Vec1: ",Z
+ClrHome
+Input "X-Comp of Vec2: ",U
+Input "Y-Comp of Vec2: ",V
+Input "Z-Comp of Vec2: ",W
+ClrHome
+Y*W-V*Z→A
+U*Z-X*W→B
+X*V-U*Y→C
+Output(1,1,"X-Comp:")
+Output(1,8,A)
+Output(2,1,"Y-Comp:")
+Output(2,8,B)
+Output(3,1,"Z-Comp:")
+Output(3,8,C)
+Pause ""
+ClrHome
+Goto AB
+
+Lbl D
+Menu("Range Menu","FLAT GROUND",DA,"SLOPED GROUND",DB,"Back",DC,"Exit",Z)
+
+Lbl DA
+ClrHome
+Disp "RANGE ON FLAT","GROUND"
+Disp "Initial"
+Input "Velocity: ",V
+Input "Launch Angle: ",T
+ClrHome
+V^2→S
+S/9.81*sin(2*T)→R
+Disp R
+Pause ""
+ClrHome
+Goto D
+
+Lbl DB
+ClrHome
+Disp "RANGE ON SLOPED","GROUND"
+Disp "Initial"
+Input "Velocity: ",V
+Input "Launch Angle: ",T
+Input "Slope Angle: ",P
+V^2→S
+sin(2*T-P)-sin(P)→A
+(S/(9.81*cos(P)^2))*A→R
+Disp R
+Pause ""
+ClrHome
+Goto D
+
+Lbl DC
+Goto A
+
+Lbl E
+ClrHome
+Disp "MAGNITUDE OF","A 3D VECTOR"
+Input "X-Comp of Vctr: ",X
+Input "Y-Comp of Vctr: ",Y
+Input "Z-Comp of Vctr: ",Z
+X^2+Y^2→C
+√(C+Z^2)→D
+Disp D
+Pause ""
+ClrHome
+Goto AB
+
+Lbl Z
