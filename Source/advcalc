@@ -1,0 +1,94 @@
+PROGRAM:PHYSICS
+"Number of labels:13
+ClrHome
+Disp "ADVANCED ","CALCULUS IS FUN","RIGHT?"
+Pause ""
+ClrHome
+
+Lbl A
+Menu("Main Menu","Solids of Rev",AB,"Exit",Z)
+
+Lbl AB
+Menu("Solids of Rev","Around X",B,"Around Y",C,"Back",ZA,"Exit",Z)
+
+Lbl B
+Menu("Around X","Intercepts",BB,"Specify Bounds",BA,"Back",BC,"Exit",Z)
+
+Lbl C
+Menu("Around Y","Intercepts",CB,"Specify Bounds",CA,"Back",BC,"Exit",Z)
+
+Lbl BA
+Input "Around Y=",A
+Input "First Curve: ",Str1
+Input "Second Curve: ",Str2
+Input "Lower Bound: ",B
+Input "Upper Bound: ",C
+ClrHome
+Str1?Y1
+Str2?Y2
+fnInt(p(A-(Y1))^2,X,B,C)?D
+fnInt(p(A-(Y2))^2,X,B,C)?E
+D-E?F
+Disp F
+Pause ""
+ClrHome
+Goto B
+
+Lbl BB
+Input "Around Y=",A
+Input "First Curve: ",Str1
+Input "Second Curve: ",Str2
+ClrHome
+Str1?Y1
+Str2?Y2
+solve(Y1-Y2,X,(0-1))?B
+solve(Y1-Y2,X,1)?C
+fnInt(p(A-(Y1))^2,X,B,C)?D
+fnInt(p(A-(Y2))^2,X,B,C)?E
+D-E?F
+Disp F
+Pause ""
+ClrHome
+Goto B
+
+Lbl BC
+Goto AB
+
+Lbl CA
+Input "Around X=",A
+Input "First Curve: ",Str1
+Input "Second Curve: ",Str2
+Input "Lower Bound: ",B
+Input "Upper Bound: ",C
+ClrHome
+Str1?Y1
+Str2?Y2
+fnInt(p(A-(Y1))^2,Y,B,C)?D
+fnInt(p(A-(Y2))^2,Y,B,C)?E
+D-E?F
+Disp F
+Pause ""
+ClrHome
+Goto C
+
+Lbl CB
+Input "Around X=",A
+Input "First Curve: ",Str1
+Input "Second Curve: ",Str2
+ClrHome
+Str1?Y1
+Str2?Y2
+solve(Y1-Y2,Y,(0-1))?B
+solve(Y1-Y2,Y,1)?C
+fnInt(p(A-(Y1))^2,Y,B,C)?D
+fnInt(p(A-(Y2))^2,Y,B,C)?E
+D-E?F
+Disp F
+Pause ""
+ClrHome
+Goto C
+
+Lbl ZA
+Goto A
+
+Lbl Z
