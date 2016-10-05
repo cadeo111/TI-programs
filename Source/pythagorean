@@ -1,0 +1,51 @@
+ClrHome
+Disp "000000 00   000"
+Disp "00     00  000 "
+Disp "00     00 000  "
+Disp "00     00000   "
+Disp "00     00 000  "
+Disp "00     00  000 "
+Disp "000000 00   000"
+
+Pause 
+
+ClrHome
+Disp "*WARNING*","This Program","Resets MODE Settings","*WARNING*"
+Pause 
+Lbl A
+
+AxesOn 
+Radian
+AUTO
+Normal
+MATHPRINT
+Float
+Func
+Thick
+Real
+Full
+nd
+STATWIZARD ON
+
+Lbl C
+ClrHome
+Menu("What Vars?","S&Hypotenuse",CH,"2 Sides",CS,"Exit",Z)
+
+Lbl CH
+Prompt S
+Prompt H
+√(H²-S²)→E
+Disp "The other side:",E
+Pause 
+Goto C
+
+Lbl CS
+ClrHome
+Input "First Side:",A
+Input "Second Side:",B
+√(A²+B²)→H
+Disp "Hypotenuse:",H
+Pause 
+Goto C
+
+Lbl Z

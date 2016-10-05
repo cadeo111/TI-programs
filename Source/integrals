@@ -1,0 +1,76 @@
+ClrHome
+Disp "000000 00   000"
+Disp "00     00  000 "
+Disp "00     00 000  "
+Disp "00     00000   "
+Disp "00     00 000  "
+Disp "00     00  000 "
+Disp "000000 00   000"
+
+Pause 
+
+ClrHome
+Disp "*WARNING*","This Program","Resets MODE Settings","*WARNING*"
+Pause 
+Lbl A
+
+AxesOn 
+Radian
+AUTO
+Normal
+MATHPRINT
+Float
+Func
+Thick
+Real
+Full
+nd
+STATWIZARD ON
+Lbl G
+ClrHome
+Menu("Main Menu","Exp&Log",H,"Trig",I,"Inverse-Trig",J,"Exit",A)
+
+
+Lbl H
+Disp "∫(u^x)dn=","(u^(x+1))/(n+1)"
+Pause 
+Pause "∫(e^x)dx=(e^x)+C"
+Disp "∫(a^x)dx=","(a^x)/(ln(a))+C"
+Pause 
+Disp "∫(1/x)dx=","ln|x|+C"
+Pause 
+Goto G
+
+
+Lbl I
+ClrHome
+Menu("Trig Menu","sin&cos",IA,"sec&tan",IB,"csc&cot",IC,"Main Menu",A)
+
+Lbl IA
+Disp "∫cos(x)dx=","sin(x)+C","----------------","∫sin(x)dx=","-cos(x)+C"
+Pause 
+Goto I
+
+Lbl IB
+Disp "∫sec²(x)dx=","tan(x)+C","----------------","∫sec(x)*tan(x)dx","=sec(x)+C"
+Pause 
+Goto I
+
+Lbl IC
+Disp "∫csc(x)*cot(x)dx","=-csc(x)+C"
+Pause 
+Disp "----------------","∫csc²(x)=","-cot(x)+C"
+Pause 
+Goto I
+
+
+Lbl J
+Disp "∫(1/√(1-x²))dx","=arcsin(x)+C","----------------","∫(-1/√(1-x²))dx","=arccos(x)+C"
+Pause 
+Goto G
+
+
+
+
+
+
